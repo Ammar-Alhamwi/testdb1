@@ -18,9 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::post('/order', 'AuthController@createOrder');
-    Route::put('/table/{id}', 'AuthController@update');
-    Route::post('/order_datails','AuthController@createOrder_datails');
+    Route::post('/order', 'orderController@createOrder');
+    Route::put('/table/{id}', 'orderController@update');
+    Route::post('/order_datails','orderController@createOrder_datails');
     Route::resource('roles','UserManagement\RoleController');
     Route::resource('users','UserManagement\UserController');
 });
